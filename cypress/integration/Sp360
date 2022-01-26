@@ -1,0 +1,30 @@
+/// <reference types="cypress"/>
+
+describe("My first test Suit",function()
+{
+
+  it("MyfirstTestCase",function()
+  {
+    cy.visit("https://spa-ui-dev.sendpro360.pitneycloud.com/")
+    cy.get('#username').type("cypressdevuser01@mailinator.com")
+    cy.get('#password').type("Aqswde@123")
+    cy.get('#signinButton').click()
+    cy.wait(19000)
+    cy.get(' button[aria-label="Analytics"] span').click()
+    cy.get('div#cdk-overlay-0 a[role="menuitem"][href="/analytics/dashboard/all"] span').click()
+    cy.wait(5000)
+
+
+
+    
+
+  
+
+
+
+  })
+
+
+
+})
+

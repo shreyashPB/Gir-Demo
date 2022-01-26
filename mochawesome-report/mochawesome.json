@@ -1,0 +1,119 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-01-10T08:05:42.839Z",
+    "end": "2022-01-10T08:06:02.519Z",
+    "duration": 19680,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4a78234f-96e8-47a7-a552-ba229d6ba2da",
+      "title": "",
+      "fullFile": "cypress/integration/1-getting-started/framework.js",
+      "file": "cypress/integration/1-getting-started/framework.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "04291c41-3d8c-4a90-a310-8145a8328bd9",
+          "title": "My first test Suit for POD",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "MyfirstTestCase",
+              "fullTitle": "My first test Suit for POD MyfirstTestCase",
+              "timedOut": null,
+              "duration": 11039,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Now we can use the \"key\" more dynamically into our testcases\n//By this we can call the url of any enviroment to any testcase and if we want to concatinate \n//The base URL with its extension URL we can do it by + ''\n//    cy.visit(Cypress.env('url')+\"/angularpractice/\")\ncy.visit(Cypress.env('url') + \"/angularpractice/\");\nconst homepage = new _HomePage.default();\nhomepage.getUsername().type(this.data.name);\nhomepage.getEmail().type(this.data.email);\nhomepage.checkRadioButton().check();\nhomepage.getGender().select(this.data.Gender); //Assert Wheather the bewow textbox Takes the given name or not\nhomepage.getAssertion2Databinding().should('have.value', this.data.name); //Assert if the 3rd Radio Button is Disabaled or not\nhomepage.getAssertionMinlenght2().should('have.attr', 'minlength', '2'); //Assert if the Name given have minimum of length 2\nhomepage.getAssertionRadiobuttondisabled().should('be.disabled');\nhomepage.getShopTab().click();\nthis.data.productName;\nthis.data.productName.forEach(element => {\n  cy.SelectProduct(element); // forEach method is used to Iterate over an String Array defined\n});",
+              "err": {},
+              "uuid": "fb69f793-e16c-4313-8013-83400c244388",
+              "parentUUID": "04291c41-3d8c-4a90-a310-8145a8328bd9",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "CheckoutPage",
+              "fullTitle": "My first test Suit for POD CheckoutPage",
+              "timedOut": null,
+              "duration": 5835,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "Cypress.config('defaultCommandTimeout', 10000);\nconst chekcoutpage = new _ShoppingPage.default();\nchekcoutpage.clickCheckoutbutton().click();\nvar sum = 0; //taking sum as zero first as varibale as it need to be iteratable\ncy.get('tr td:nth-child(4) strong').each(($e1, index, list) => {\n  const amount = $e1.text();\n  var res = amount.split(\" \"); // taking Split keyword to catch the space between $ 65000\n  res = res[1].trim();\n  sum = Number(sum) + Number(res); // assign res as Result of abover operations now\n  // triming the catched space with res index 1\n  // for example amount is $.65000 here \n  // res[0] = $. and \n  // res[1] = 65000 Therefore\n}).then(function () {\n  cy.log(sum);\n}); //Thi is printing sum as 0 in dashboard the reason is Upper operation is performed by\n//Jqueries not cypress so we have to resolve the promise first by .then(function)\n// Now Comparing the total amount and our sum as assertion to do that we have to resolve the promise first\ncy.get('h3 > strong').then(function (element) {\n  const amount = element.text();\n  var res = amount.split(\" \"); // taking Split keyword to catch the space between $ 65000\n  let total = res[1].trim();\n  expect(Number(total)).to.equal(sum);\n});\ncy.contains('Checkout').click();\ncy.get('#country').type(\"Ind\");\ncy.get('.suggestions > :nth-child(1) > li > a').click();\ncy.get('#checkbox2').click({\n  force: true\n});\ncy.get('input[class*=\"btn-succes\"]').click(); //    cy.get('.alert').should('have.text',' Thank you! Your order will be delivered in next few weeks')\ncy.get('.alert').then(element => {\n  const alterText = element.text();\n  expect(alterText.includes('Success')).to.be.true;\n});",
+              "err": {},
+              "uuid": "2ebad1c1-47c2-4507-9c1a-c95a4b28ffff",
+              "parentUUID": "04291c41-3d8c-4a90-a310-8145a8328bd9",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fb69f793-e16c-4313-8013-83400c244388",
+            "2ebad1c1-47c2-4507-9c1a-c95a4b28ffff"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 16874,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.0.1"
+    }
+  }
+}
